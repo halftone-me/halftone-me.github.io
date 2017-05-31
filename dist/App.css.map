@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./App.vue"],"names":[],"mappings":"AACA,mCACE,iBAAmB,CAErB,iCACE,uBAA0B","file":"App.css","sourcesContent":["\n.tile.is-ancestor[data-v-272fe4d8]{\n  text-align: center;\n}\n.tile.is-parent[data-v-272fe4d8]{\n  margin: 0 auto !important;\n}\n\n\n\n\n// WEBPACK FOOTER //\n// ./App.vue"],"sourceRoot":""}
