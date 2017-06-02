@@ -46,15 +46,16 @@
    authDomain: "halftone-856ed.firebaseapp.com",
    databaseURL: "https://halftone-856ed.firebaseio.com",
    projectId: "halftone-856ed",
-   storageBucket: "halftone-856ed.appspot.com",
+   storageBucket: "gs://halftone-856ed.appspot.com",
    messagingSenderId: "230534234164"
  }
 
  firebase.initializeApp(config)
 
- var storage = firebase.storage().ref()
- var db = firebase.database()
- var ref = db.ref('/').child("svg").limitToLast(20)
+ const db = firebase.database()
+ const ref = db.ref('/').child("svg").limitToLast(20)
+ const storage = firebase.app().storage("gs://halftone-856ed.appspot.com")
+ const storageRef = storage.ref('/images')
 
  function rand(x, y) {
    return Math.floor(Math.random() * (x - y + 1) + y)
@@ -104,12 +105,12 @@
        if(this.url){
          this.timeout = setTimeout(()=>{
            var item = db.ref('svg').push().key;
-           storage.child(item+'.svg')
+           storageRef.child(item+'.svg')
                   .putString(this.getSvgBinary(), 'data_url')
                   .then(function(snapshot){
                     db.ref('svg').child(item).set(snapshot.downloadURL);
                   });
-         }, 2000);
+         }, 3500);
        }
      }
    },
